@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Fuzzy+Bubbles:wght@400;700&display=swap"
+    rel="stylesheet">
+  <title>Explore os animais | Ocean Wiki</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js.js" defer></script>
+</head>
+
+<body>
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--CABEÇALHO DO SITE-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Ocean Wiki, início">
+        <span class="brand-mark" aria-hidden="true">〰</span>
+        <span>Ocean Wiki</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="Descubra.html" aria-current="page">Explore</a>
+        <a href="Apoia-se.html">Como apoiar</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Ativar modo escuro</button>
+    </nav>
+  </header>
+
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--"CORPO" DO SITE-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <main>
+    
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--"BANNER-->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Encontre seu próximo favorito</p>
+          <h1 id="hero-title">Quem vive <em>no azul?</em></h1>
+          <p class="hero-copy">Pesquise por nome ou escolha um grupo. Cada ficha traz uma foto, habitat, alimentação e
+            uma curiosidade.</p>
+          <label class="search-box" for="search-input">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <span class="sr-only">Buscar animais marinhos</span>
+            <input id="search-input" type="search" placeholder="Busque por nome, habitat ou curiosidade..."
+              autocomplete="off">
+          </label>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orbit"></div>
+          <div class="hero-photo-frame">
+            <img class="hero-photo" src="imagens/green-sea-turtle.jpg" alt="">
+          </div>
+          <span class="floating-note note-one">50 espécies</span>
+          <span class="floating-note note-two">Uma vida inteira no oceano</span>
+        </div>
+      </div>
+    </section>
+
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--CATALOGO-->
+    <section class="content" id="explorar" aria-labelledby="explore-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Biodiversidade marinha</p>
+          <h2 id="explore-title">Uma janela para o oceano</h2>
+        </div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filtrar animais por grupo">
+        <button class="filter-button" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="filter-button" type="button" data-filter="mamiferos" aria-pressed="false">Mamíferos</button>
+        <button class="filter-button" type="button" data-filter="peixes" aria-pressed="false">Peixes</button>
+        <button class="filter-button" type="button" data-filter="repteis" aria-pressed="false">Répteis</button>
+        <button class="filter-button" type="button" data-filter="invertebrados" aria-pressed="false">Invertebrados</button>
+        <button class="filter-button" type="button" data-filter="aves" aria-pressed="false">Aves marinhas</button>
+      </div>
+
+      <div class="animal-grid" id="animal-grid" aria-live="polite" aria-label="Animais marinhos"></div>
+      <section class="about" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow">Escolha uma surpresa</p>
+          <h2 id="about-title">O que vamos descobrir agora?</h2>
+          <p>Deixe o acaso escolher uma espécie para você conhecer.</p>
+        </div>
+        <button class="surprise-button" id="surprise-button" type="button">Sortear um animal</button>
+      </section>
+    </section>
+
+    <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--MODAL-->
+    <dialog id="animal-dialog" aria-labelledby="dialog-nome">
+      <div class="dialog-art">
+        <img id="dialog-image" src="" alt="">
+      </div>
+      <div class="dialog-content">
+        <div class="dialog-topline">
+          <span class="category-label" id="dialog-categoria"></span>
+          <button type="button" class="dialog-close" id="dialog-close" aria-label="Fechar ficha">×</button>
+        </div>
+        <h2 id="dialog-nome"></h2>
+        <p class="scientific-name" id="dialog-cientifico"></p>
+        <p id="dialog-descricao"></p>
+        <div class="detail-list">
+          <div class="detail-item">
+            <span>Habitat</span>
+            <strong id="dialog-habitat"></strong>
+          </div>
+          <div class="detail-item">
+            <span>Alimentação</span>
+            <strong id="dialog-dieta"></strong>
+          </div>
+        </div>
+        <p class="image-credit" id="dialog-credit"></p>
+      </div>
+    </dialog>
+  </main>
+
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--RODAPÉ-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <footer class="site-footer">
+    <p><strong>Ocean Wiki</strong> — projeto educativo sobre a vida marinha.</p>
+    <p>Leia sobre nossos <a href="Apoia-se.html">links de apoio</p>
+  </footer>
+</body>
+
+</html>

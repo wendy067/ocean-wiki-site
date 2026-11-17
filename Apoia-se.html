@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Fuzzy+Bubbles:wght@400;700&display=swap"
+    rel="stylesheet">
+  <title>Como apoiar | Ocean Wiki</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js.js" defer></script>
+</head>
+
+<body>
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--CABEÇALHO DO SITE-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Ocean Wiki, início">
+        <span class="brand-mark" aria-hidden="true">〰</span>
+        <span>Ocean Wiki</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="Descubra.html">Explore</a>
+        <a href="Apoia-se.html" aria-current="page">Como apoiar</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Ativar modo escuro</button>
+    </nav>
+  </header>
+
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--"CORPO" DO SITE-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <main>
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--"BANNER-->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner support-hero">
+        <div>
+          <p class="eyebrow">Da curiosidade à atitude</p>
+          <h1 id="hero-title">Apoie quem <em>cuida do mar.</em></h1>
+          <p class="hero-copy">Conheça organizações com atuação marinha e descubra como contribuir diretamente para a proteção dos oceanos.</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orbit"></div>
+          <div class="hero-photo-frame">
+            <img class="hero-photo" src="imagens/leatherback-sea-turtle.jpg" alt="">
+          </div>
+          <span class="floating-note note-one">Apoio consciente</span>
+          <span class="floating-note note-two">Conservação real</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" aria-labelledby="support-title">
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--CABEÇALHO DA SESSÃO-->
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Iniciativas parceiras</p>
+          <h2 id="support-title">Escolha como participar</h2>
+        </div>
+      </div>
+      <p class="support-intro">Apoie diretamente instituições reconhecidas pela linha de frente na defesa da biodiversidade marinha.</p>
+
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--LINKS DE DOAÇÃO-->
+      <div class="support-grid">
+        <article class="support-card">
+          <p class="support-tag">Brasil · tartarugas marinhas</p>
+          <h3>Fundação Projeto Tamar</h3>
+          <p>O Projeto Tamar atua na pesquisa, conservação e manejo das tartarugas marinhas no Brasil. Você pode apoiar visitando os centros, atuando como voluntário ou adquirindo produtos oficiais.</p>
+          <a class="surprise-button" href="https://tamar.org.br" target="_blank"
+            rel="noopener noreferrer">Conheça as formas de participar</a>
+          <p class="support-source">Site oficial: <span>tamar.org.br</span></p>
+        </article>
+
+        <article class="support-card">
+          <p class="support-tag">Organização internacional · vida marinha</p>
+          <h3>Sea Shepherd</h3>
+          <p>A organização lidera campanhas globais de proteção direta à vida marinha contra a pesca ilegal e a destruição de habitats. Acesse a página oficial para contribuir com as missões em alto-mar.</p>
+          <a class="surprise-button" href="https://seashepherd.org" target="_blank"
+            rel="noopener noreferrer">Acesse a página oficial de doação</a>
+          <p class="support-source">Site oficial: <span>seashepherd.org</span></p>
+        </article>
+      </div>
+
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--CADASTRO DO CLUBE-->
+      <section class="community-card mission-card" id="missao" aria-labelledby="mission-title">
+        <p class="eyebrow">Missão oceano</p>
+        <h2 id="mission-title">Faça parte do Clube do Oceano</h2>
+        <p id="mission-disclaimer">A saúde dos mares precisa da nossa ação hoje. Ao entrar para o Clube do Oceano, você se torna um apoiador direto da Missão Oceano, ajudando a financiar projetos de conservação, pesquisa e limpeza das nossas águas. Sua doação recorrente garante que nosso trabalho continue firme todos os dias, protegendo a vida marinha e construindo um futuro mais sustentável para as próximas gerações. Cada contribuição faz a diferença nessa corrente do bem.</p>
+        <form class="stacked-form mission-form" id="mission-form" action="#" autocomplete="on"
+          aria-describedby="mission-disclaimer">
+          <label for="mission-name">Nome completo</label>
+          <input id="mission-name" name="nome" type="text" maxlength="100" required placeholder="Seu nome completo">
+
+          <label for="mission-email">E-mail</label>
+          <input id="mission-email" name="email" type="email" maxlength="150" required placeholder="voce@exemplo.com">
+
+          <label for="mission-cpf">CPF <span>(opcional, para recibo de apoio)</span></label>
+          <input id="mission-cpf" name="cpf" type="text" inputmode="numeric" maxlength="14"
+            placeholder="000.000.000-00">
+
+          <label for="mission-phone">Telefone <span>(opcional)</span></label>
+          <input id="mission-phone" name="telefone" type="tel" maxlength="20" placeholder="(00) 00000-0000">
+
+          <label class="mission-consent" for="mission-demo-consent">
+            <input id="mission-demo-consent" name="consentimento" type="checkbox" required>
+            <span>Concordo em receber informações sobre a Missão Oceano e acompanhar o impacto das ações de conservação.</span>
+          </label>
+
+          <button class="surprise-button" type="submit">Quero fazer parte</button>
+          <p class="form-status" id="mission-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+    </section>
+  </main>
+
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--RODAPÉ-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <footer class="site-footer">
+    <p><strong>Ocean Wiki</strong> — educação e conservação da vida marinha.</p>
+    <p>Juntos pela proteção dos oceanos e da biodiversidade costeira.</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Fuzzy+Bubbles:wght@400;700&display=swap"
+    rel="stylesheet">
+  <title>Ocean Wiki</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js.js" defer></script>
+</head>
+
+<body>
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--CABEÇALHO DO SITE-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Ocean Wiki, início">
+        <span class="brand-mark" aria-hidden="true">〰</span>
+        <span>Ocean Wiki</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">Início</a>
+        <a href="Descubra.html">Explore</a>
+        <a href="Apoia-se.html">Como apoiar</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Ativar modo escuro</button>
+    </nav>
+  </header>
+
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--"CORPO" DO SITE-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <main>
+
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--"BANNER-->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Pequena wiki, oceano gigante</p>
+          <h1 id="hero-title">A vida que existe <em>sob as ondas.</em></h1>
+          <p class="hero-copy">Conheça espécies fascinantes e descubra atitudes simples para cuidar do mar.</p>
+          <div class="hero-actions">
+            <a class="surprise-button hero-link" href="Descubra.html">Explorar os animais</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit" aria-hidden="true"></div>
+          <div class="hero-photo-frame">
+            <img class="hero-photo" src="imagens/common-octopus.jpg" alt="Polvo-comum fotografado no fundo do mar">
+          </div>
+          <span class="floating-note note-one">50 espécies</span>
+          <span class="floating-note note-two">Curiosidade em cada onda</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" aria-label="Ferramentas para cuidar do oceano">
+        <!--________________________________________________________________________________________________________________________________________________________________-->
+        <!--SOBRE O SITE-->
+      <section class="assistant-panel oracle-panel" id="boas-vindas" aria-labelledby="welcome-title">
+        <p class="eyebrow">Bem-vindo ao Ocean Wiki</p>
+        <h2 id="welcome-title">Onde a curiosidade vira cuidado pelo oceano.</h2>
+        <p>O Ocean Wiki é um projeto criado para aproximar você da incrível biodiversidade que vive
+          sob as ondas. Nosso objetivo principal é transformar a informação em conscientização ambiental, mostrando de
+          forma simples e interativa por que proteger os mares é essencial para o futuro do planeta. O que você encontra
+          por aqui:</p>
+        <ul>
+          <li><strong>Uma wiki marinha completa:</strong> Explore fichas detalhadas de 50 espécies diferentes, entre
+            mamíferos, peixes, répteis, invertebrados e aves marinhas. Descobrindo onde vivem, do que se alimentam e
+            curiosidades fascinantes sobre cada uma.</li>
+          <li><strong>Dicas práticas:</strong> Receba sugestões rápidas e acessíveis de hábitos
+            sustentáveis para aplicar na sua rotina e ajudar a preservar a vida marinha.</li>
+          <li><strong>Seu compromisso pessoal:</strong> Crie e acompanhe sua própria lista de atitudes positivas pelo
+            meio ambiente diretamente no seu navegador, dando um passo de cada vez.</li>
+          <li><strong>Apoio consciente:</strong> Conectamos você aos canais oficiais de organizações sérias, como a
+            Fundação Projeto Tamar e a Sea Shepherd, incentivando a participação segura em causas de conservação
+            marinha.</li>
+        </ul>
+      </section>
+
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--ORACULO-->
+      <section class="assistant-panel oracle-panel" id="oraculo" aria-labelledby="oracle-title">
+        <p class="eyebrow">Uma dica de cada vez</p>
+        <h2 id="oracle-title">Oráculo do oceano</h2>
+        <p>Clique no botão e receba uma ideia simples para cuidar do mar.</p>
+        <button class="surprise-button" id="btn-gerar-ia" type="button">Gerar uma dica</button>
+        <div class="assistant-answer" id="resultado-ia-box" role="status" aria-live="polite" hidden>
+          <strong>O oráculo sugere</strong>
+          <p id="texto-saida-ia"></p>
+        </div>
+      </section>
+
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--LISTA-->
+      <section class="action-panel" id="meu-compromisso" aria-labelledby="action-title">
+        <p class="eyebrow">Um passo de cada vez</p>
+        <h2 id="action-title">Meu compromisso com o oceano</h2>
+        <p>Adicione uma atitude. A lista fica salva somente neste navegador.</p>
+        <form class="inline-form" id="task-form">
+          <label class="sr-only" for="task-input">Nova atitude de cuidado</label>
+          <input id="task-input" name="tarefa" type="text" maxlength="120" required
+            placeholder="Ex.: levar uma garrafa reutilizável">
+          <button class="surprise-button" type="submit">Adicionar à lista</button>
+        </form>
+        <p class="form-status" id="task-status" role="status" aria-live="polite"></p>
+        <ul class="action-list" id="action-list" aria-label="Meus compromissos com o oceano"></ul>
+      </section>
+
+      <!--________________________________________________________________________________________________________________________________________________________________-->
+      <!--CHAMAR PARA AGIR-->
+      <section class="about" id="sobre" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow">Conhecimento que vira cuidado</p>
+          <h2 id="about-title">O oceano precisa de todos nós.</h2>
+          <p>Explore a wiki, compartilhe o que aprendeu e conheça formas oficiais de apoiar a conservação marinha.</p>
+        </div>
+        <a class="surprise-button" href="Apoia-se.html">Como apoiar</a>
+      </section>
+    </section>
+  </main>
+
+
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <!--RODAPÉ-->
+  <!--________________________________________________________________________________________________________________________________________________________________-->
+  <footer class="site-footer">
+    <p><strong>Ocean Wiki</strong> — educação e conservação da vida marinha.</p>
+    <p>Descubra como fazer a diferença na página <a href="Apoia-se.html">Como apoiar</a>.</p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,1580 @@
+
+:root {
+  color-scheme: light;
+  --ink: #123942;
+  --muted: #58777b;
+  --deep: #062f3b;
+  --sea: #087c83;
+  --foam: #e8f4ec;
+  --coral: #ff876d;
+  --sand: #fff8e9;
+  --paper: #fffdf7;
+  --line: #dce9df;
+  --shadow: 0 18px 48px rgb(11 61 66 / 10%);
+  --font-heading: "Elsie", Georgia, "Times New Roman", serif;
+  --font-short: "Fuzzy Bubbles", "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--deep);
+  color: #f4fbef;
+}
+
+.nav-wrap {
+  width: min(1120px, calc(100% - 40px));
+  min-height: 76px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Logotipo com ícone de onda + texto */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 13px;
+  background: #e1f3dd;
+  color: var(--deep);
+  font-size: 1.3rem;
+}
+
+/* Links de navegação (Início, Explore, Como apoiar) */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 34px);
+  color: #c5ddd7;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: white;
+}
+
+/* Destaca o link da página atual */
+.nav-links a[aria-current="page"] {
+  color: white;
+}
+
+/* Estilo opcional para botão de chamada no menu */
+.nav-cta {
+  padding: 10px 15px;
+  border: 1px solid rgb(255 255 255 / 27%);
+  border-radius: 999px;
+  color: white !important;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 87% 22%, rgb(91 183 158 / 26%), transparent 27%),
+    radial-gradient(ellipse at 72% 95%, rgb(11 125 130 / 40%), transparent 37%),
+    linear-gradient(118deg, #073540 4%, #07515a 64%, #0a6a6b);
+  color: #f7fbef;
+}
+
+/* Círculos decorativos translúcidos no canto superior direito do banner */
+.hero::before,
+.hero::after {
+  position: absolute;
+  content: "";
+  border: 1px solid rgb(226 249 221 / 14%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 520px;
+  height: 520px;
+  right: -160px;
+  top: -280px;
+}
+
+.hero::after {
+  width: 390px;
+  height: 390px;
+  right: -90px;
+  top: -215px;
+}
+
+/* Grid interno que divide texto à esquerda e imagem à direita */
+.hero-inner,
+.support-hero {
+  position: relative;
+  width: min(1120px, calc(100% - 40px));
+  min-height: 430px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+  align-items: center;
+  gap: 30px;
+  padding: 52px 0 62px;
+}
+
+/* Pequeno rótulo acima dos títulos (ex: "Pequena wiki, oceano gigante") */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 15px;
+  color: #b8e3c9;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 21px;
+  height: 2px;
+  background: var(--coral);
+  content: "";
+}
+
+/* Tipografia dos títulos e parágrafos */
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 650px;
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: clamp(2.7rem, 6vw, 5.1rem);
+  font-weight: 500;
+  letter-spacing: -.055em;
+  line-height: .99;
+}
+
+h1 em {
+  color: #b9e8c9;
+  font-weight: 500;
+}
+
+.hero-copy {
+  max-width: 530px;
+  margin-bottom: 25px;
+  color: #d1e4dc;
+  font-family: var(--font-short);
+  font-size: 1.05rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(490px, 100%);
+  padding: 7px 8px 7px 16px;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 15px;
+  background: #fffdf7;
+  box-shadow: 0 14px 30px rgb(0 22 28 / 18%);
+}
+
+.search-icon {
+  color: var(--sea);
+  font-size: 1.15rem;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.search-box input::placeholder {
+  color: #799094;
+}
+
+.search-box:focus-within {
+  outline: 3px solid rgb(185 232 201 / 60%);
+  outline-offset: 3px;
+}
+
+/* Área direita do Hero contendo órbitas, foto circular e etiquetas flutuantes */
+.hero-visual {
+  position: relative;
+  display: grid;
+  min-height: 300px;
+  place-items: center;
+}
+
+.orbit {
+  position: absolute;
+  width: min(290px, 78vw);
+  aspect-ratio: 1;
+  border: 1px solid rgb(213 243 224 / 25%);
+  border-radius: 50%;
+}
+
+.orbit::before,
+.orbit::after {
+  position: absolute;
+  border: 1px solid rgb(213 243 224 / 18%);
+  border-radius: 50%;
+  content: "";
+}
+
+.orbit::before {
+  inset: 20px;
+}
+
+.orbit::after {
+  inset: 42px;
+}
+
+/* Moldura circular da fotografia em destaque no Hero */
+.hero-photo-frame {
+  position: relative;
+  z-index: 1;
+  width: min(310px, 76vw);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 8px solid rgb(255 255 255 / 84%);
+  border-radius: 50%;
+  background: #dcefe1;
+  box-shadow: 0 26px 65px rgb(0 24 31 / 33%);
+  transform: rotate(-5deg);
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Versão antiga (legado) com emoji antes das fotografias */
+.hero-creature {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 205px;
+  height: 205px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: 48% 52% 55% 45%;
+  background: linear-gradient(145deg, #f8dca8, #f5a777 68%, #ed8a70);
+  box-shadow: 0 26px 65px rgb(0 24 31 / 33%), inset -14px -15px 25px rgb(190 92 77 / 20%);
+  font-size: 7.6rem;
+  transform: rotate(-8deg);
+}
+
+/* Badges translúcidos flutuando sobre a foto do Hero */
+.floating-note {
+  position: absolute;
+  z-index: 2;
+  padding: 9px 12px;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 12px;
+  background: rgb(5 50 58 / 72%);
+  color: #f6f7e9;
+  font-family: var(--font-short);
+  font-size: .78rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.note-one {
+  top: 21%;
+  right: 0;
+}
+
+.note-two {
+  bottom: 17%;
+  left: 0;
+}
+
+.content {
+  width: min(1120px, calc(100% - 40px));
+  margin: auto;
+  padding: 56px 0 72px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 8px;
+  color: var(--sea);
+}
+
+h2 {
+  margin-bottom: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.55rem);
+  font-weight: 500;
+  letter-spacing: -.04em;
+  line-height: 1.1;
+}
+
+.result-count {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.filters {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  padding: 3px 1px 14px;
+  scrollbar-width: thin;
+}
+
+.filter-button {
+  flex: 0 0 auto;
+  padding: 9px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: .86rem;
+  font-weight: 700;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.filter-button:hover {
+  transform: translateY(-1px);
+  border-color: #9dc9b3;
+}
+
+.filter-button[aria-pressed="true"] {
+  border-color: var(--deep);
+  background: var(--deep);
+  color: white;
+}
+
+/* Grade responsiva de 4 colunas para os cards dos animais */
+.animal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+  margin-top: 8px;
+}
+
+/* Card individual de cada espécie */
+.animal-card {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 5px 16px rgb(11 61 66 / 3%);
+  cursor: pointer;
+  text-align: left;
+
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.animal-card:hover,
+.animal-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: #b5d5c1;
+  box-shadow: var(--shadow);
+}
+
+/* Área superior do card que exibe a fotografia do animal */
+.card-art {
+  position: relative;
+  display: grid;
+  height: 155px;
+  overflow: hidden;
+  place-items: center;
+  background: var(--art-bg, #dcefe1);
+}
+
+.card-art::before,
+.card-art::after {
+  position: absolute;
+  border: 1px solid rgb(255 255 255 / 48%);
+  border-radius: 50%;
+  content: "";
+}
+
+.card-art::before {
+  width: 150px;
+  height: 150px;
+  right: -38px;
+  top: -76px;
+}
+
+.card-art::after {
+  width: 105px;
+  height: 105px;
+  left: -44px;
+  bottom: -62px;
+}
+
+.animal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+
+.animal-card:hover .animal-photo,
+.animal-card:focus-visible .animal-photo {
+  transform: scale(1.05);
+}
+
+/* Versão antiga com emoji nos cards */
+.animal-emoji {
+  position: relative;
+  z-index: 1;
+  font-size: 5.1rem;
+  filter: drop-shadow(0 9px 4px rgb(11 61 66 / 11%));
+  transition: transform .2s ease;
+}
+
+.animal-card:hover .animal-emoji,
+.animal-card:focus-visible .animal-emoji {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* Corpo textual do card */
+.card-content {
+  display: block;
+  padding: 15px 16px 17px;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.category-label {
+  color: var(--sea);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.fact-dot {
+  color: #e28b68;
+  font-size: .8rem;
+}
+
+/* Título e descrição resumida (limitada a 2 linhas com reticências) */
+.animal-card h3,
+.animal-card-title {
+  display: block;
+  margin: 5px 0 6px;
+  font-family: var(--font-heading);
+  font-size: 1.24rem;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+.animal-card p,
+.animal-card-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.48;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.animal-card-description {
+  font-family: var(--font-short);
+}
+
+/* Mensagem exibida quando a busca/filtro não encontra nenhum animal */
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 44px 20px;
+  border: 1px dashed #b6d2c2;
+  border-radius: 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.empty-state strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-top: 53px;
+  padding: 30px 32px;
+  border-radius: 20px;
+  background: var(--sand);
+}
+
+.about p {
+  max-width: 650px;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.about h2 {
+  font-size: 1.7rem;
+}
+
+
+
+
+
+
+
+/* Botão principal em tom coral usado em todo o site */
+.surprise-button {
+  flex: 0 0 auto;
+  padding: 12px 17px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--coral);
+  color: #3a2824;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.surprise-button:hover {
+  transform: translateY(-2px);
+  background: #ff9a7f;
+}
+
+.surprise-button:disabled {
+  cursor: wait;
+  opacity: .65;
+  transform: none;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.secondary-button {
+  padding: 11px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--deep);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.secondary-button:hover {
+  border-color: var(--sea);
+  color: var(--sea);
+}
+
+dialog {
+  width: min(520px, calc(100% - 28px));
+  max-height: min(86vh, 760px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 28px 90px rgb(0 24 31 / 35%);
+}
+
+/* Fundo escurecido e desfocado atrás do modal */
+dialog::backdrop {
+  background: rgb(2 31 37 / 67%);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-art {
+  display: grid;
+  height: 190px;
+  place-items: center;
+  background: var(--art-bg, #dcefe1);
+}
+
+.dialog-art img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.dialog-art span {
+  font-size: 6.8rem;
+  filter: drop-shadow(0 9px 4px rgb(11 61 66 / 12%));
+}
+
+.dialog-content {
+  padding: 24px 27px 28px;
+}
+
+.dialog-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dialog-close {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.dialog-content h2 {
+  margin: 8px 0 9px;
+  font-size: 2rem;
+}
+
+.scientific-name {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.dialog-content p {
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+/* Caixas de Habitat e Alimentação dentro da ficha */
+.detail-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.detail-item {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--foam);
+}
+
+.detail-item span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.detail-item strong {
+  font-size: .86rem;
+}
+
+/* Rodapé de créditos da fotografia dentro do modal */
+.image-credit {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.image-credit a,
+.site-footer a {
+  color: var(--sea);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.assistant-panel,
+.action-panel,
+.community-card,
+.support-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 8px 24px rgb(11 61 66 / 5%);
+}
+
+.assistant-panel,
+.action-panel,
+.community-section,
+.mission-card {
+  margin-top: 40px;
+}
+
+/* Remove margem superior apenas do primeiro painel logo abaixo do Hero */
+.oracle-panel {
+  margin-top: 0;
+}
+
+/* Garante espaçamento correto quando há dois painéis seguidos no index.html */
+.oracle-panel+.oracle-panel {
+  margin-top: 40px;
+}
+
+.assistant-panel>p,
+.action-panel>div>p,
+.community-card>p {
+  color: var(--muted);
+}
+
+/* Estilização da lista de recursos na seção de boas-vindas do index.html */
+.assistant-panel ul {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.assistant-panel li {
+  margin-bottom: 10px;
+}
+
+.assistant-panel li:last-child {
+  margin-bottom: 0;
+}
+
+.assistant-panel li strong {
+  color: var(--ink);
+}
+
+.assistant-panel .section-heading,
+.community-section .section-heading {
+  margin-bottom: 16px;
+}
+
+.mission-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.7rem;
+}
+
+.mission-card>.eyebrow,
+.oracle-panel>.eyebrow {
+  margin-bottom: 8px;
+  color: var(--sea);
+}
+
+/* Formulários empilhados (Clube do Oceano) */
+.stacked-form {
+  display: grid;
+  gap: 10px;
+}
+
+.stacked-form label,
+.form-label {
+  color: var(--ink);
+  font-size: .86rem;
+  font-weight: 800;
+}
+
+.stacked-form input,
+.stacked-form textarea,
+.stacked-form select,
+.inline-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.stacked-form textarea {
+  resize: vertical;
+}
+
+.stacked-form input:focus,
+.stacked-form textarea:focus,
+.stacked-form select:focus,
+.inline-form input:focus {
+  outline: 3px solid rgb(8 124 131 / 18%);
+  border-color: var(--sea);
+}
+
+.stacked-form .surprise-button {
+  justify-self: start;
+  margin-top: 5px;
+}
+
+/* Checkbox de consentimento no formulário */
+.mission-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.mission-consent input {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+  padding: 0;
+}
+
+.mission-consent span {
+  font-weight: 400;
+}
+
+.form-hint,
+.form-status {
+  min-height: 1.4em;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+/* Caixa de resposta do Oráculo do Oceano */
+.assistant-answer {
+  margin-top: 18px;
+  padding: 18px;
+  border-left: 4px solid var(--sea);
+  border-radius: 10px;
+  background: var(--foam);
+}
+
+.assistant-answer[hidden] {
+  display: none;
+}
+
+.assistant-answer strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--deep);
+}
+
+/* Formulário em linha e lista de compromissos pessoais */
+.inline-form {
+  display: flex;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.action-panel>div>p {
+  margin: 8px 0 0;
+}
+
+.action-list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--foam);
+}
+
+.action-item input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--sea);
+}
+
+.action-item.is-done span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.action-item span {
+  flex: 1;
+}
+
+.action-remove {
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: .78rem;
+}
+
+.image-note,
+.support-intro {
+  margin: 17px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.support-grid,
+.community-grid,
+.next-steps-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.support-card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 27px;
+}
+
+.support-card h3,
+.community-card h3 {
+  margin: 2px 0 10px;
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+}
+
+.support-card>p:not(.support-tag):not(.support-source) {
+  flex: 1;
+  color: var(--muted);
+}
+
+.support-tag {
+  margin: 0 0 8px;
+  color: var(--sea);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.support-card .surprise-button {
+  display: inline-flex;
+  text-align: center;
+}
+
+.support-source {
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.support-source span {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+/* Estilos auxiliares e legados (alertas, toasts, notas) */
+.support-disclaimer {
+  margin-top: 26px;
+  padding: 23px 26px;
+  border-left: 4px solid var(--sea);
+  border-radius: 12px;
+  background: var(--foam);
+}
+
+.support-disclaimer h2 {
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+}
+
+.support-disclaimer p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cat-note {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 28px;
+  padding: 22px 26px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 8px 24px rgb(11 61 66 / 5%);
+}
+
+.cat-note img {
+  flex: 0 0 auto;
+  width: 142px;
+  height: 142px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cat-note h2 {
+  font-size: 1.55rem;
+}
+
+.cat-note p:last-child {
+  max-width: 620px;
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.cat-note .eyebrow {
+  margin-bottom: 7px;
+  color: var(--sea);
+}
+
+.next-steps {
+  margin-top: 48px;
+}
+
+.next-steps .eyebrow {
+  margin-bottom: 8px;
+  color: var(--sea);
+}
+
+.next-steps-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 17px 19px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: white;
+  color: var(--deep);
+  font-weight: 800;
+}
+
+.next-steps-links a:hover,
+.next-steps-links a:focus-visible {
+  border-color: var(--sea);
+  color: var(--sea);
+}
+
+/* Notificações flutuantes (Toasts gerados via JS) */
+.toast-region {
+  position: fixed;
+  z-index: 10;
+  right: 20px;
+  bottom: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.toast {
+  max-width: min(390px, calc(100vw - 40px));
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: var(--deep);
+  color: white;
+  box-shadow: var(--shadow);
+  animation: toast-in .2s ease-out;
+}
+
+.toast.is-error {
+  background: #8c322d;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ocean-alert {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px max(20px, calc((100% - 1120px) / 2));
+  background: var(--sand);
+  color: var(--ink);
+  box-shadow: 0 5px 16px rgb(0 24 31 / 12%);
+}
+
+.ocean-alert p {
+  flex: 1;
+  margin: 0;
+  font-size: .88rem;
+}
+
+.ocean-alert p strong {
+  color: var(--deep);
+}
+
+.alert-close {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: white;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+RODAPÉ 
+========================================================================== */
+footer,
+.site-footer {
+  padding: 23px 20px;
+  background: var(--deep);
+  color: #bdd3ce;
+  font-size: .82rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer p+p {
+  margin-top: 6px;
+}
+
+footer strong,
+.site-footer strong {
+  color: #f3f6e8;
+}
+
+.site-footer a {
+  color: #b9e8c9;
+}
+
+/* Classe utilitária para esconder textos visualmente mantendo leitura para cegos */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+/* Anel de destaque visível ao navegar usando a tecla TAB */
+.animal-card:focus-visible,
+.filter-button:focus-visible,
+.surprise-button:focus-visible,
+.dialog-close:focus-visible,
+.theme-toggle:focus-visible,
+.action-remove:focus-visible,
+.nav-links a:focus-visible,
+.site-footer a:focus-visible,
+.support-card a:focus-visible,
+.next-steps-links a:focus-visible,
+.image-credit a:focus-visible,
+.secondary-button:focus-visible,
+.alert-close:focus-visible {
+  outline: 3px solid #e48d70;
+  outline-offset: 3px;
+}
+
+.action-item input:focus-visible {
+  outline: 3px solid #e48d70;
+  outline-offset: 2px;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+DARK MODE
+========================================================================== */
+.theme-toggle {
+  padding: 9px 13px;
+  border: 1px solid #e1f3dd;
+  border-radius: 999px;
+  background: #e1f3dd;
+  color: var(--deep);
+  cursor: pointer;
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+body.dark-theme {
+  color-scheme: dark;
+  --ink: #e4f0ec;
+  --muted: #abc2bd;
+  --deep: #061f27;
+  --sea: #73cfca;
+  --foam: #15363a;
+  --sand: #17343a;
+  --paper: #102a31;
+  --line: #34545a;
+  --shadow: 0 18px 48px rgb(0 0 0 / 28%);
+}
+
+body.dark-theme .animal-card,
+body.dark-theme .filter-button,
+body.dark-theme .assistant-panel,
+body.dark-theme .action-panel,
+body.dark-theme .community-card,
+body.dark-theme .dialog-close,
+body.dark-theme .cat-note,
+body.dark-theme .next-steps-links a,
+body.dark-theme .support-card {
+  background: #17343a;
+  color: var(--ink);
+}
+
+body.dark-theme .filter-button[aria-pressed="true"] {
+  background: #0a6a6b;
+  color: white;
+}
+
+body.dark-theme .assistant-answer,
+body.dark-theme .action-item,
+body.dark-theme .detail-item,
+body.dark-theme .support-disclaimer {
+  background: #173f42;
+}
+
+body.dark-theme .assistant-answer strong,
+body.dark-theme .ocean-alert p strong {
+  color: #b7eee2;
+}
+
+body.dark-theme .stacked-form input,
+body.dark-theme .stacked-form textarea,
+body.dark-theme .stacked-form select,
+body.dark-theme .inline-form input,
+body.dark-theme .secondary-button,
+body.dark-theme .alert-close {
+  background: #102a31;
+  color: var(--ink);
+}
+
+body.dark-theme .ocean-alert {
+  background: #17343a;
+  color: var(--ink);
+}
+
+body.dark-theme .support-source span {
+  color: var(--ink);
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+TABLETS E CELULARES 
+========================================================================== */
+/* Ajustes para Tablets (telas até 850px) */
+@media (max-width: 850px) {
+
+  .hero-inner,
+  .support-hero {
+    grid-template-columns: 1fr .75fr;
+    gap: 10px;
+  }
+
+  .hero-visual {
+    min-height: 260px;
+  }
+
+  .hero-creature {
+    width: 175px;
+    height: 175px;
+    font-size: 6.4rem;
+  }
+
+  /* Reduz a grade de animais de 4 para 2 colunas */
+  .animal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Ajustes para Celulares (telas até 600px) */
+@media (max-width: 600px) {
+
+  .nav-wrap,
+  .hero-inner,
+  .content {
+    width: min(100% - 32px, 480px);
+  }
+
+  /* Quebra o cabeçalho em duas linhas para caber logo, botão de tema e os 3 links */
+  .nav-wrap {
+    min-height: 66px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 13px;
+    font-size: .78rem;
+  }
+
+  /* Mantém todos os 3 links visíveis no celular */
+  .nav-links a:nth-child(2) {
+    display: inline;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+  }
+
+  .nav-cta {
+    padding: 8px 11px;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: .93rem;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Empilha o texto e a imagem do Hero em uma única coluna */
+  .hero-inner {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding: 51px 0 34px;
+  }
+
+  h1 {
+    max-width: 460px;
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+  }
+
+  .hero-copy {
+    font-size: .98rem;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+  }
+
+  .hero-visual {
+    min-height: 205px;
+    margin-top: 4px;
+  }
+
+  .orbit {
+    width: 190px;
+  }
+
+  .hero-photo-frame {
+    width: 190px;
+  }
+
+  .hero-creature {
+    width: 138px;
+    height: 138px;
+    font-size: 5rem;
+  }
+
+  .note-one {
+    top: 15%;
+    right: 7%;
+  }
+
+  .note-two {
+    bottom: 10%;
+    left: 7%;
+  }
+
+  .content {
+    padding: 43px 0 52px;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .animal-grid {
+    gap: 11px;
+  }
+
+  .card-art {
+    height: 125px;
+  }
+
+  .animal-emoji {
+    font-size: 4.25rem;
+  }
+
+  .card-content {
+    padding: 12px 12px 14px;
+  }
+
+  .animal-card h3,
+  .animal-card-title {
+    font-size: 1.12rem;
+  }
+
+  .animal-card p,
+  .animal-card-description {
+    font-size: .8rem;
+  }
+
+  .about,
+  .cat-note {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px 20px;
+  }
+
+  .cat-note img {
+    width: 118px;
+    height: 118px;
+  }
+
+  .about h2 {
+    font-size: 1.55rem;
+  }
+
+  .assistant-panel,
+  .action-panel,
+  .community-card,
+  .support-card {
+    padding: 21px 18px;
+  }
+
+  .support-disclaimer {
+    padding: 20px 18px;
+  }
+
+  .community-grid,
+  .next-steps-links,
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inline-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .inline-form .surprise-button {
+    align-self: flex-start;
+  }
+
+  .toast-region {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .ocean-alert {
+    padding: 12px 16px;
+  }
+}
+
+/* Desativa animações para usuários com sensibilidade a movimento configurada no sistema */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .animal-photo {
+    transition: none;
+  }
+}
